@@ -25,7 +25,7 @@ object Formats {
     /** Tarikh relatif mesra: "Hari ini 14:32", "Semalam", atau tarikh penuh */
     fun date(context: Context, timeMs: Long): CharSequence {
         return DateUtils.getRelativeTimeSpanString(
-            context, timeMs, DateUtils.DAY_IN_MILLIS
+            timeMs, System.currentTimeMillis(), DateUtils.DAY_IN_MILLIS
         )
     }
 

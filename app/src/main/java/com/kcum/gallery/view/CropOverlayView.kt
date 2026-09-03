@@ -181,22 +181,22 @@ class CropOverlayView @JvmOverloads constructor(
             MODE_TOP_LEFT -> {
                 rect.left = (rect.left + dx).coerceIn(boundsLeft, rect.right - minSize())
                 rect.top = (rect.top + dy).coerceIn(boundsTop, rect.bottom - minSize())
-                enforceAspect(TOP_LEFT)
+                enforceAspect(MODE_TOP_LEFT)
             }
             MODE_TOP_RIGHT -> {
                 rect.right = (rect.right + dx).coerceIn(rect.left + minSize(), boundsRight)
                 rect.top = (rect.top + dy).coerceIn(boundsTop, rect.bottom - minSize())
-                enforceAspect(TOP_LEFT)
+                enforceAspect(MODE_TOP_LEFT)
             }
             MODE_BOTTOM_LEFT -> {
                 rect.left = (rect.left + dx).coerceIn(boundsLeft, rect.right - minSize())
                 rect.bottom = (rect.bottom + dy).coerceIn(rect.top + minSize(), boundsBottom)
-                enforceAspect(TOP_LEFT)
+                enforceAspect(MODE_TOP_LEFT)
             }
             MODE_BOTTOM_RIGHT -> {
                 rect.right = (rect.right + dx).coerceIn(rect.left + minSize(), boundsRight)
                 rect.bottom = (rect.bottom + dy).coerceIn(rect.top + minSize(), boundsBottom)
-                enforceAspect(TOP_LEFT)
+                enforceAspect(MODE_TOP_LEFT)
             }
             MODE_LEFT -> rect.left = (rect.left + dx).coerceIn(boundsLeft, rect.right - minSize())
             MODE_TOP -> rect.top = (rect.top + dy).coerceIn(boundsTop, rect.bottom - minSize())
@@ -214,7 +214,7 @@ class CropOverlayView @JvmOverloads constructor(
         val h = rect.height()
         // Laraskan tinggi mengikut lebar supaya nisbah dikekalkan
         val newH = w / aspectRatio
-        if (anchor == TOP_LEFT) {
+        if (anchor == MODE_TOP_LEFT) {
             val bottomLimit = height.toFloat()
             rect.bottom = min(rect.top + newH, bottomLimit)
             if (rect.bottom - rect.top < minSize()) rect.bottom = rect.top + minSize()

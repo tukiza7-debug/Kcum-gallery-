@@ -18,6 +18,7 @@ import com.kcum.gallery.data.PrefsRepository
 import com.kcum.gallery.util.Formats
 import com.kcum.gallery.util.PermissionUtils
 import com.kcum.gallery.util.SecurityUtils
+import com.kcum.gallery.viewmodel.SettingsViewModel
 
 /**
  * Skrin Tetapan:
@@ -61,7 +62,7 @@ class SettingsFragment : Fragment() {
         viewModel.stats.observe(viewLifecycleOwner) { stats ->
             stats?.let { showStorageDialog(it) } ?: return@observe
             // Reset supaya boleh dibuka semula
-            viewModel.stats.value = null
+            viewModel.clearStats()
         }
 
         view.findViewById<View>(R.id.row_storage).setOnClickListener {

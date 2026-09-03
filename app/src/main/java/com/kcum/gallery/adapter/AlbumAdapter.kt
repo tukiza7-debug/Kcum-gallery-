@@ -46,7 +46,7 @@ class AlbumAdapter(
         holder.bind(albums[position])
     }
 
-    class AlbumViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class AlbumViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val img: ImageView = view.findViewById(R.id.img_cover)
         private val txtName: TextView = view.findViewById(R.id.txt_album_name)
         private val txtCount: TextView = view.findViewById(R.id.txt_album_count)

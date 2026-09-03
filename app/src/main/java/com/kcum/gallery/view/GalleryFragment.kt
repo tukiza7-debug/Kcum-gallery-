@@ -36,6 +36,7 @@ import com.kcum.gallery.data.TimelineRow
 import com.kcum.gallery.util.Formats
 import com.kcum.gallery.util.MediaStoreUtils
 import com.kcum.gallery.util.shareUris
+import com.kcum.gallery.util.visibleOr
 import com.kcum.gallery.viewmodel.GalleryViewModel
 import kotlinx.coroutines.launch
 
@@ -285,7 +286,7 @@ class GalleryFragment : Fragment() {
     private fun openViewer(position: Int) {
         val items = viewModel.media.value ?: return
         if (position !in items.indices) return
-        ViewerActivity.start(this, items, position)
+        ViewerActivity.start(requireContext(), items, position)
     }
 
     // =====================================================================

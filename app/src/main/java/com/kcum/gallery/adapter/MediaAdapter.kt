@@ -103,7 +103,7 @@ class MediaAdapter(
                 .placeholder(R.drawable.ic_photo)
                 .into(img)
 
-            badge.visibleOr(item.isVideo)
+            badge?.visibleOr(item.isVideo)
             if (item.isVideo) txtDuration?.text = Formats.duration(item.durationMs)
 
             if (mode == MODE_LIST) {

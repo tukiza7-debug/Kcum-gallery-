@@ -20,6 +20,11 @@ class SettingsViewModel(app: Application) : AndroidViewModel(app) {
     val stats: LiveData<StorageStats?> = _stats
 
     /** Kira statistik (jumlah gambar/video, saiz, ruang kosong) */
+    /** Kosongkan stats selepas dialog ditutup, supaya boleh dibuka semula */
+    fun clearStats() {
+        _stats.value = null
+    }
+
     fun loadStats() {
         viewModelScope.launch {
             _stats.value = repo.storageStats()
