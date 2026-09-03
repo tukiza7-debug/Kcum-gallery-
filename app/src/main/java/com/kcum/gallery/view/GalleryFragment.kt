@@ -203,7 +203,7 @@ class GalleryFragment : Fragment() {
     }
 
     private fun bindAction(id: Int, action: () -> Unit) {
-        selectionBar.findViewById<ImageButton>(id)?.setOnClickListener { action() }
+        selectionBar.findViewById<View>(id)?.setOnClickListener { action() }
     }
 
     private fun setupAdapter() {
@@ -462,7 +462,7 @@ class GalleryFragment : Fragment() {
         val count = mediaAdapter.selectedUris.size
         txtSelectionCount.text = getString(R.string.selected_count, count)
         // Rename hanya untuk 1 item
-        selectionBar.findViewById<ImageButton>(R.id.btn_sel_rename)?.isEnabled = count == 1
+        selectionBar.findViewById<View>(R.id.btn_sel_rename)?.isEnabled = count == 1
     }
 
     private fun exitSelection() {
