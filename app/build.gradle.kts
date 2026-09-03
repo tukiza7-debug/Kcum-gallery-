@@ -13,8 +13,8 @@ android {
         applicationId = "com.kcum.gallery"
         minSdk = 24
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = (System.getenv("GITHUB_RUN_NUMBER")?.toIntOrNull() ?: 1)
+        versionName = "1.0." + (System.getenv("GITHUB_RUN_NUMBER") ?: "0")
         vectorDrawables.useSupportLibrary = true
     }
 

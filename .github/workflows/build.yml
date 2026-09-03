@@ -26,5 +26,5 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: kcum-gallery-apk
+          name: kcum-gallery-v${{ github.run_number }}
           path: app/build/outputs/apk/debug/*.apk
