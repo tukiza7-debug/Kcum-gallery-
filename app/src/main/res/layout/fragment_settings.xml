@@ -18,7 +18,7 @@
             android:text="@string/nav_settings"
             android:textAppearance="?attr/textAppearanceHeadlineSmall" />
 
-        <!-- ---------- PAPARAN ---------- -->
+        <!-- PAPARAN -->
         <TextView style="@style/SettingsSection" android:text="@string/section_display" />
 
         <LinearLayout android:id="@+id/row_theme" style="@style/SettingsRow">
@@ -57,7 +57,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- ---------- KESELAMATAN ---------- -->
+        <!-- KESELAMATAN -->
         <TextView style="@style/SettingsSection" android:text="@string/section_security" />
 
         <LinearLayout android:id="@+id/row_private_album" style="@style/SettingsRow">
@@ -102,7 +102,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- ---------- STORAN & LAIN ---------- -->
+        <!-- STORAN & LAIN -->
         <TextView style="@style/SettingsSection" android:text="@string/section_storage" />
 
         <LinearLayout android:id="@+id/row_storage" style="@style/SettingsRow">
