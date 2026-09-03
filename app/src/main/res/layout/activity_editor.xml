@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Editor: toolbar, kanvas (imej + overlay crop + overlay lukis), panel mod -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/black">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/editor_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorSurface"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:title="@string/editor_title" />
+
+    <!-- Kanvas editor -->
+    <FrameLayout
+        android:id="@+id/editor_canvas"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/iv_edit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:contentDescription="@null" />
+
+        <com.kcum.gallery.view.CropOverlayView
+            android:id="@+id/crop_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <com.kcum.gallery.view.DrawView
+            android:id="@+id/draw_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <!-- Panel mod (satu sahaja kelihatan pada satu masa) -->
+    <LinearLayout
+        android:id="@+id/panel_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorSurface"
+        android:orientation="vertical">
+
+        <!-- Panel PUTAR -->
+        <LinearLayout
+            android:id="@+id/panel_rotate"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <ImageButton
+                android:id="@+id/btn_rot_left"
+                style="@style/EditorPanelButton"
+                android:src="@drawable/ic_rotate_left"
+                android:contentDescription="@string/mode_rotate" />
+
+            <ImageButton
+                android:id="@+id/btn_rot_right"
+                style="@style/EditorPanelButton"
+                android:src="@drawable/ic_rotate_right"
+                android:contentDescription="@string/mode_rotate" />
+        </LinearLayout>
+
+        <!-- Panel POTONG -->
+        <LinearLayout
+            android:id="@+id/panel_crop"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <ImageButton android:id="@+id/btn_crop_free" style="@style/EditorPanelButton"
+                android:src="@drawable/ic_crop_free" android:contentDescription="@string/crop_free" />
+            <ImageButton android:id="@+id/btn_crop_1_1" style="@style/EditorPanelButton"
+                android:src="@drawable/ic_crop_square" android:contentDescription="@string/crop_square" />
+            <ImageButton android:id="@+id/btn_crop_4_3" style="@style/EditorPanelButton"
+                android:src="@drawable/ic_crop_4_3" android:contentDescription="@string/crop_4_3" />
+            <ImageButton android:id="@+id/btn_crop_16_9" style="@style/EditorPanelButton"
+                android:src="@drawable/ic_crop_16_9" android:contentDescription="@string/crop_16_9" />
+            <ImageButton android:id="@+id/btn_crop_apply" style="@style/EditorPanelButton"
+                android:src="@drawable/ic_check" android:contentDescription="@string/crop_apply" />
+            <ImageButton android:id="@+id/btn_crop_cancel" style="@style/EditorPanelButton"
+                android:src="@drawable/ic_close" android:contentDescription="@string/cancel" />
+        </LinearLayout>
+
+        <!-- Panel PENAPIS -->
+        <LinearLayout
+            android:id="@+id/panel_filter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/filter_brightness"
+                android:textAppearance="?attr/textAppearanceLabelSmall" />
+            <SeekBar
+                android:id="@+id/slider_brightness"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="200" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/filter_contrast"
+                android:textAppearance="?attr/textAppearanceLabelSmall" />
+            <SeekBar
+                android:id="@+id/slider_contrast"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="100" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/filter_saturation"
+                android:textAppearance="?attr/textAppearanceLabelSmall" />
+            <SeekBar
+                android:id="@+id/slider_saturation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="200" />
+
+            <ImageButton
+                android:id="@+id/btn_filter_reset"
+                style="@style/EditorPanelButton"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/ic_tune"
+                android:contentDescription="@string/date_clear" />
+        </LinearLayout>
+
+        <!-- Panel LUKIS -->
+        <LinearLayout
+            android:id="@+id/panel_draw"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp"
+            android:visibility="gone">
+
+            <ImageButton android:id="@+id/btn_c1" style="@style/ColorDot" android:contentDescription="@null"
+                android:backgroundTint="#F44336" android:src="@null" />
+            <ImageButton android:id="@+id/btn_c2" style="@style/ColorDot" android:contentDescription="@null"
+                android:backgroundTint="#FFEB3B" android:src="@null" />
+            <ImageButton android:id="@+id/btn_c3" style="@style/ColorDot" android:contentDescription="@null"
+                android:backgroundTint="#4CAF50" android:src="@null" />
+            <ImageButton android:id="@+id/btn_c4" style="@style/ColorDot" android:contentDescription="@null"
+                android:backgroundTint="#2196F3" android:src="@null" />
+            <ImageButton android:id="@+id/btn_c5" style="@style/ColorDot" android:contentDescription="@null"
+                android:backgroundTint="#9C27B0" android:src="@null" />
+            <ImageButton android:id="@+id/btn_c6" style="@style/ColorDot" android:contentDescription="@null"
+                android:backgroundTint="#212121" android:src="@null" />
+
+            <SeekBar
+                android:id="@+id/slider_draw_width"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="8dp"
+                android:max="20" />
+        </LinearLayout>
+
+        <!-- Panel TEKS -->
+        <LinearLayout
+            android:id="@+id/panel_text"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp"
+            android:visibility="gone">
+
+            <ImageButton android:id="@+id/btn_tc1" style="@style/ColorDot" android:contentDescription="@null"
+                android:backgroundTint="#F44336" android:src="@null" />
+            <ImageButton android:id="@+id/btn_tc2" style="@style/ColorDot" android:contentDescription="@null"
+                android:backgroundTint="#FFEB3B" android:src="@null" />
+            <ImageButton android:id="@+id/btn_tc3" style="@style/ColorDot" android:contentDescription="@null"
+                android:backgroundTint="#4CAF50" android:src="@null" />
+            <ImageButton android:id="@+id/btn_tc4" style="@style/ColorDot" android:contentDescription="@null"
+                android:backgroundTint="#2196F3" android:src="@null" />
+            <ImageButton android:id="@+id/btn_tc5" style="@style/ColorDot" android:contentDescription="@null"
+                android:backgroundTint="#9C27B0" android:src="@null" />
+            <ImageButton android:id="@+id/btn_tc6" style="@style/ColorDot" android:contentDescription="@null"
+                android:backgroundTint="#212121" android:src="@null" />
+
+            <ImageButton
+                android:id="@+id/btn_add_text"
+                style="@style/EditorPanelButton"
+                android:src="@drawable/ic_text_fields"
+                android:contentDescription="@string/add_text" />
+        </LinearLayout>
+
+        <!-- Bar pemilih mod -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageButton android:id="@+id/btn_mode_rotate" style="@style/EditorModeButton"
+                android:src="@drawable/ic_rotate_right" android:contentDescription="@string/mode_rotate" />
+            <ImageButton android:id="@+id/btn_mode_crop" style="@style/EditorModeButton"
+                android:src="@drawable/ic_crop" android:contentDescription="@string/mode_crop" />
+            <ImageButton android:id="@+id/btn_mode_filter" style="@style/EditorModeButton"
+                android:src="@drawable/ic_tune" android:contentDescription="@string/mode_filter" />
+            <ImageButton android:id="@+id/btn_mode_draw" style="@style/EditorModeButton"
+                android:src="@drawable/ic_brush" android:contentDescription="@string/mode_draw" />
+            <ImageButton android:id="@+id/btn_mode_text" style="@style/EditorModeButton"
+                android:src="@drawable/ic_text_fields" android:contentDescription="@string/mode_text" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

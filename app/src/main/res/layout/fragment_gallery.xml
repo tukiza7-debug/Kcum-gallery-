@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Skrin galeri: 2 toolbar (biasa + mod pemilihan), grid/senarai, bar tindakan bawah -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Toolbar biasa (menu diangkat dalam kod - elak pendua) -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/gallery_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:title="@string/nav_photos" />
+
+    <!-- Toolbar mod pemilihan (asalnya sorok) -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/selection_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:visibility="gone"
+        app:navigationIcon="@drawable/ic_close"
+        app:title="@string/select_items"
+        app:titleTextColor="?attr/colorOnPrimary" />
+
+    <!-- Kiraan item dipilih (dibawa toolbar pemilihan) -->
+    <TextView
+        android:id="@+id/txt_selection_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="4dp"
+        android:text="@string/select_items"
+        android:textAppearance="?attr/textAppearanceLabelMedium"
+        android:visibility="gone" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="true" />
+
+            <!-- Skrin kosong / tiada kebenaran -->
+            <LinearLayout
+                android:id="@+id/empty_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_photo"
+                    android:alpha="0.4" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/empty_gallery_msg"
+                    android:textAppearance="?attr/textAppearanceBodyLarge" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_grant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/grant_permission" />
+            </LinearLayout>
+        </FrameLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <!-- Bar tindakan bawah untuk mod pemilihan -->
+    <LinearLayout
+        android:id="@+id/selection_bar"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:orientation="horizontal"
+        android:baselineAligned="false"
+        android:visibility="gone"
+        android:background="?attr/colorSurface">
+
+        <LinearLayout
+            android:id="@+id/btn_sel_share"
+            style="@style/SelectionAction">
+
+            <ImageButton style="@style/SelectionActionIcon" android:src="@drawable/ic_share"
+                android:contentDescription="@string/action_share" />
+            <TextView style="@style/SelectionActionText" android:text="@string/action_share" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_sel_move"
+            style="@style/SelectionAction">
+
+            <ImageButton style="@style/SelectionActionIcon" android:src="@drawable/ic_move"
+                android:contentDescription="@string/action_move" />
+            <TextView style="@style/SelectionActionText" android:text="@string/action_move" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_sel_copy"
+            style="@style/SelectionAction">
+
+            <ImageButton style="@style/SelectionActionIcon" android:src="@drawable/ic_content_copy"
+                android:contentDescription="@string/action_copy" />
+            <TextView style="@style/SelectionActionText" android:text="@string/action_copy" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_sel_trash"
+            style="@style/SelectionAction">
+
+            <ImageButton style="@style/SelectionActionIcon" android:src="@drawable/ic_delete"
+                android:contentDescription="@string/action_trash" />
+            <TextView style="@style/SelectionActionText" android:text="@string/action_trash" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_sel_hide"
+            style="@style/SelectionAction">
+
+            <ImageButton style="@style/SelectionActionIcon" android:src="@drawable/ic_visibility_off"
+                android:contentDescription="@string/action_hide" />
+            <TextView style="@style/SelectionActionText" android:text="@string/action_hide" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_sel_rename"
+            style="@style/SelectionAction">
+
+            <ImageButton style="@style/SelectionActionIcon" android:src="@drawable/ic_edit"
+                android:contentDescription="@string/rename" />
+            <TextView style="@style/SelectionActionText" android:text="@string/rename" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

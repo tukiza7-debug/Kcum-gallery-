@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Peraturan backup (API < 31).
+  Folder ALBUM PERIBADI dan TONG SAMPAH dikecualikan supaya fail tersembunyi
+  tidak bocor ke awan/transfer peranti - ciri privasi.
+-->
+<full-backup-content>
+    <exclude domain="file" path="hidden" />
+    <exclude domain="file" path="trash" />
+    <exclude domain="sharedpref" path="kcum_prefs.xml" />
+</full-backup-content>

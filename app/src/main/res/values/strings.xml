@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Strings default: Bahasa Melayu -->
+<resources>
+    <string name="app_name">Kcum Gallery</string>
+
+    <!-- Umum -->
+    <string name="ok">OK</string>
+    <string name="cancel">Batal</string>
+    <string name="done">Selesai</string>
+    <string name="delete">Padam</string>
+    <string name="save">Simpan</string>
+    <string name="undo">Undo</string>
+    <string name="close">Tutup</string>
+    <string name="rename">Tukar Nama</string>
+    <string name="hide">Sembunyi</string>
+    <string name="restore">Pulihkan</string>
+    <string name="share">Kongsi</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
+    <string name="error_generic">Ralat berlaku. Cuba lagi.</string>
+
+    <!-- Navigasi bawah -->
+    <string name="nav_photos">Gambar</string>
+    <string name="nav_albums">Album</string>
+    <string name="nav_settings">Tetapan</string>
+
+    <!-- Kebenaran -->
+    <string name="permission_rationale_title">Kebenaran Storan Diperlukan</string>
+    <string name="permission_rationale_msg">Kcum Gallery memerlukan kebenaran membaca media untuk memaparkan gambar dan video anda. Sila benarkan dalam Tetapan &gt; Kebenaran.</string>
+    <string name="permission_open_settings">Buka Tetapan</string>
+    <string name="permission_denied_toast">Kebenaran storan ditolak. Galeri tidak dapat dimuat.</string>
+    <string name="grant_permission">Beri Kebenaran</string>
+
+    <!-- Galeri -->
+    <string name="empty_gallery_msg">Tiada media ditemui. Beri kebenaran storan atau muat semula.</string>
+    <string name="select_items">Pilih item</string>
+    <string name="selected_count">%1$d dipilih</string>
+    <string name="items_count">%1$d item</string>
+
+    <!-- Menu galeri / paparan -->
+    <string name="view_mode_title">Mod Paparan</string>
+    <string name="view_grid">Grid</string>
+    <string name="view_list">Senarai</string>
+    <string name="view_timeline">Timeline</string>
+
+    <!-- Susunan -->
+    <string name="sort_title">Susun</string>
+    <string name="sort_by">Susun ikut</string>
+    <string name="sort_order">Arah</string>
+    <string name="sort_date">Tarikh</string>
+    <string name="sort_name">Nama</string>
+    <string name="sort_size">Saiz</string>
+    <string name="sort_type">Jenis</string>
+    <string name="sort_asc">Menaik (A-Z / lama ke baru)</string>
+    <string name="sort_desc">Menurun (Z-A / baru ke lama)</string>
+
+    <!-- Cipta folder -->
+    <string name="create_folder_title">Cipta Folder Baharu</string>
+    <string name="folder_name_hint">Nama folder</string>
+    <string name="location_title">Lokasi</string>
+    <string name="location_default">Lalai (Pictures/)</string>
+    <string name="location_custom">Pilih lokasi sendiri (SAF)</string>
+    <string name="custom_loc_warning">Lokasi custom menggunakan SAF - pilih folder induk apabila diminta.</string>
+    <string name="folder_name_error_empty">Nama folder tidak boleh kosong</string>
+    <string name="folder_name_error_invalid">Nama mengandungi simbol tidak sah ( \\ / : * ? \" &lt; &gt; | )</string>
+    <string name="folder_created">Folder dicipta</string>
+    <string name="folder_create_failed">Gagal mencipta folder</string>
+
+    <!-- Tindakan pemilihan -->
+    <string name="action_share">Kongsi</string>
+    <string name="action_move">Pindah</string>
+    <string name="action_copy">Salin</string>
+    <string name="action_trash">Buang</string>
+    <string name="action_hide">Sembunyi</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_export">Eksport salinan</string>
+    <string name="action_wallpaper">Tetap sebagai wallpaper</string>
+    <string name="action_contact">Tetap sebagai foto kenalan</string>
+    <string name="action_more">Lagi</string>
+
+    <!-- Pengesahan -->
+    <string name="trash_confirm_title">Alih ke Tong Sampah?</string>
+    <string name="trash_confirm_msg">%1$d item akan dialih ke tong sampah dan dipadam kekal selepas 30 hari.</string>
+    <string name="hide_confirm_title">Sembunyikan item?</string>
+    <string name="hide_confirm_msg">%1$d item akan dipindahkan ke Album Peribadi (dilindungi PIN) dan dikeluarkan dari galeri.</string>
+    <string name="moved_to_trash">%1$d item dialih ke tong sampah</string>
+    <string name="hidden_count">%1$d item disembunyikan</string>
+    <string name="copied_count">%1$d item disalin</string>
+    <string name="operation_partial">%1$d item diproses, sebahagian gagal</string>
+    <string name="move_success">Item dipindahkan</string>
+    <string name="move_failed">Pindahan gagal</string>
+    <string name="copy_success">Item disalin</string>
+    <string name="copy_failed">Salinan gagal</string>
+    <string name="rename_title">Tukar Nama</string>
+    <string name="rename_hint">Nama baru</string>
+    <string name="rename_success">Nama ditukar</string>
+    <string name="rename_failed">Tukar nama gagal</string>
+    <string name="access_denied">Akses ditolak oleh sistem. Cuba lagi selepas beri kebenaran.</string>
+
+    <!-- Pindah/salin: pilih folder -->
+    <string name="choose_folder_title">Pilih Folder Sasaran</string>
+    <string name="new_folder_option">+ Folder baharu…</string>
+
+    <!-- Penonton -->
+    <string name="slideshow_toggle">Slideshow</string>
+    <string name="slideshow_active">Slideshow berjalan - sentuh skrin untuk berhenti</string>
+    <string name="slideshow_on">Slideshow dimulakan</string>
+    <string name="slideshow_off">Slideshow dihentikan</string>
+    <string name="play_pause">Main/Jeda</string>
+    <string name="mute">Senyap</string>
+    <string name="viewer_info_title">Maklumat Media</string>
+    <string name="info_name">Nama: %1$s</string>
+    <string name="info_type">Jenis: %1$s</string>
+    <string name="info_size">Saiz: %1$s</string>
+    <string name="info_dimensions">Dimensi: %1$s</string>
+    <string name="info_date">Tarikh: %1$s</string>
+    <string name="info_path">Laluan: %1$s</string>
+    <string name="wallpaper_set">Wallpaper dikemas kini</string>
+    <string name="wallpaper_fail">Gagal menetap wallpaper</string>
+    <string name="contact_set_fail">Tidak dapat membuka pemilih foto kenalan</string>
+    <string name="export_success">Salinan dieksport</string>
+    <string name="export_failed">Eksport gagal</string>
+    <string name="share_failed">Gagal berkongsi fail</string>
+
+    <!-- Editor -->
+    <string name="editor_title">Editor</string>
+    <string name="mode_rotate">Putar</string>
+    <string name="mode_crop">Potong</string>
+    <string name="mode_filter">Penapis</string>
+    <string name="mode_draw">Lukis</string>
+    <string name="mode_text">Teks</string>
+    <string name="filter_brightness">Kecerahan</string>
+    <string name="filter_contrast">Kontras</string>
+    <string name="filter_saturation">Ketepuan</string>
+    <string name="crop_free">Bebas</string>
+    <string name="crop_square">1:1</string>
+    <string name="crop_4_3">4:3</string>
+    <string name="crop_16_9">16:9</string>
+    <string name="crop_apply">Guna</string>
+    <string name="crop_cancel">Batal</string>
+    <string name="crop_too_small">Kawasan potong terlalu kecil</string>
+    <string name="add_text">Tambah teks</string>
+    <string name="add_text_title">Teks Overlay</string>
+    <string name="text_hint">Taip teks di sini</string>
+    <string name="saved_as_copy">Disimpan sebagai salinan ke galeri</string>
+    <string name="save_failed">Gagal menyimpan</string>
+    <string name="load_failed">Gagal memuat imej</string>
+
+    <!-- PIN / keselamatan -->
+    <string name="pin_verify_title">Kunci App</string>
+    <string name="pin_setup_title">Tetapkan PIN</string>
+    <string name="pin_old_title">Sahkan PIN Lama</string>
+    <string name="pin_enter_hint">Masukkan PIN (4-8 digit)</string>
+    <string name="pin_confirm_hint">Masukkan semula PIN untuk sahkan</string>
+    <string name="pin_old_hint">PIN lama anda</string>
+    <string name="pin_use_pin">Guna PIN</string>
+    <string name="pin_wrong">PIN salah</string>
+    <string name="pin_mismatch">PIN tidak sepadan</string>
+    <string name="pin_too_short">PIN mesti 4-8 digit</string>
+    <string name="pin_set_ok">PIN berjaya ditetapkan</string>
+    <string name="biometric_prompt_title">Buka Kcum Gallery</string>
+    <string name="biometric_prompt_subtitle">Guna cap jari untuk pengesahan</string>
+
+    <!-- Album peribadi -->
+    <string name="hidden_title">Album Peribadi</string>
+    <string name="hidden_empty">Album peribadi kosong. Sembunyikan item dari galeri untuk menambah di sini.</string>
+    <string name="unhide">Pulihkan ke galeri</string>
+    <string name="unhide_done">Item dipulihkan ke galeri</string>
+
+    <!-- Tong sampah -->
+    <string name="trash_title">Tong Sampah</string>
+    <string name="trash_empty">Tong sampah kosong</string>
+    <string name="trash_auto_note">Item dipadam kekal secara automatik selepas 30 hari.</string>
+    <string name="restore_done">Item dipulihkan ke lokasi asal</string>
+    <string name="restore_failed">Pemulihan gagal</string>
+    <string name="delete_forever_title">Padam Kekal?</string>
+    <string name="delete_forever_confirm">"%1$s" akan dipadam secara kekal. Tindakan ini tidak boleh diundur.</string>
+    <string name="deleted_permanently">Dipadam secara kekal</string>
+    <string name="empty_trash">Kosongkan Tong Sampah</string>
+    <string name="empty_trash_confirm">Semua item dalam tong sampah akan dipadam kekal.</string>
+    <string name="trash_emptied">Tong sampah dikosongkan</string>
+
+    <!-- Carian -->
+    <string name="search_title">Cari &amp; Tapis</string>
+    <string name="search_hint">Cari nama fail…</string>
+    <string name="type_all">Semua</string>
+    <string name="type_image">Gambar</string>
+    <string name="type_video">Video</string>
+    <string name="size_all">Semua saiz</string>
+    <string name="size_small">&lt; 1 MB</string>
+    <string name="size_medium">1–10 MB</string>
+    <string name="size_large">&gt; 10 MB</string>
+    <string name="date_from">Dari tarikh</string>
+    <string name="date_to">Hingga tarikh</string>
+    <string name="date_clear">Set semula</string>
+    <string name="no_results">Tiada hasil ditemui</string>
+
+    <!-- Album -->
+    <string name="albums_empty">Tiada album ditemui</string>
+    <string name="album_count">%1$d item</string>
+    <string name="album_delete_title">Padam Folder?</string>
+    <string name="album_delete_confirm">Semua %1$d item dalam folder ini akan dialih ke tong sampah.</string>
+    <string name="folder_renamed">Folder dinamakan semula</string>
+    <string name="folder_rename_failed">Gagal menukar nama folder</string>
+
+    <!-- Tetapan -->
+    <string name="section_display">Paparan</string>
+    <string name="section_security">Keselamatan</string>
+    <string name="section_storage">Storan</string>
+    <string name="settings_theme">Tema</string>
+    <string name="settings_theme_subtitle">Gelap, terahang atau ikut sistem</string>
+    <string name="theme_system">Ikut sistem</string>
+    <string name="theme_light">Terahang</string>
+    <string name="theme_dark">Gelap</string>
+    <string name="settings_language">Bahasa</string>
+    <string name="settings_language_subtitle">Bahasa Melayu / English</string>
+    <string name="lang_system">Ikut sistem</string>
+    <string name="lang_ms">Bahasa Melayu</string>
+    <string name="lang_en">English</string>
+    <string name="settings_grid_size">Saiz grid</string>
+    <string name="settings_grid_subtitle">2, 3 atau 4 lajur</string>
+    <string name="settings_slideshow">Tempoh slideshow</string>
+    <string name="settings_slideshow_subtitle">Saat setiap slaid (3/5/10)</string>
+    <string name="settings_private_album">Album Peribadi</string>
+    <string name="settings_private_subtitle">Item tersembunyi, dilindungi PIN/biometrik</string>
+    <string name="settings_pin">PIN</string>
+    <string name="pin_set">Tetapkan PIN baru</string>
+    <string name="pin_change">Ubah PIN (sahkan PIN lama dahulu)</string>
+    <string name="settings_biometric">Pengesahan biometrik</string>
+    <string name="settings_biometric_subtitle">Guna cap jari sebagai ganti PIN</string>
+    <string name="settings_lock_timeout">Timeout kunci app</string>
+    <string name="settings_timeout_subtitle">Bila app perlu dikunci semula</string>
+    <string name="timeout_immediate">Segera</string>
+    <string name="timeout_1min">Selepas 1 minit</string>
+    <string name="timeout_5min">Selepas 5 minit</string>
+    <string name="timeout_never">Tidak pernah</string>
+    <string name="settings_storage_title">Penggunaan storan</string>
+    <string name="settings_storage_subtitle">Jumlah gambar, video dan ruang</string>
+    <string name="storage_images">Gambar: %1$d</string>
+    <string name="storage_videos">Video: %1$d</string>
+    <string name="storage_total">Jumlah saiz media: %1$s</string>
+    <string name="storage_free">Ruang kosong: %1$s</string>
+    <string name="storage_trash">Dalam tong sampah: %1$d</string>
+    <string name="storage_hidden">Dalam album peribadi: %1$d</string>
+    <string name="settings_full_access">Akses penuh storan</string>
+    <string name="settings_full_access_subtitle">MANAGE_EXTERNAL_STORAGE - risiko tinggi, baca dulu</string>
+    <string name="full_access_status_on">Status: DIBERIKAN</string>
+    <string name="full_access_status_off">Status: TIDAK diberikan</string>
+    <string name="full_access_risk_msg">Status semasa: %1$s\n\nAMARAN RISIKO:\n1. Privasi - akses ini membenarkan app membaca dan menulis SEMUA fail dalam storan kongsi.\n2. Google Play - app galeri biasa biasanya DITOLAK semasa semakan kecuali justifikasi kukuh.\n3. Kebanyakan fungsi app ini tidak memerlukannya. Aktifkan HANYA jika anda faham risikonya.</string>
+    <string name="full_access_open">Buka Tetapan Sistem</string>
+    <string name="about_app">Kcum Gallery v1.0 • 100% offline • Tiada backup awan • Dibina dengan MediaStore API + Scoped Storage</string>
+</resources>

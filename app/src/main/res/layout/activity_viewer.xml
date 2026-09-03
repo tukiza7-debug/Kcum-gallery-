@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Penonton skrin penuh: pager + bar atas + kawalan video -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Bar atas: kembali, nama, tarikh, menu -->
+    <LinearLayout
+        android:id="@+id/viewer_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/scrim"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="10dp">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            style="@style/ViewerControl"
+            android:src="@drawable/ic_arrow_back"
+            android:contentDescription="@string/close" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_media_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@android:color/white"
+                android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+            <TextView
+                android:id="@+id/txt_media_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:alpha="0.7"
+                android:textAppearance="?attr/textAppearanceBodySmall" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btn_menu"
+            style="@style/ViewerControl"
+            android:src="@drawable/ic_more_vert"
+            android:contentDescription="@string/action_more" />
+    </LinearLayout>
+
+    <!-- Penanda slideshow aktif -->
+    <TextView
+        android:id="@+id/txt_slideshow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="72dp"
+        android:background="@color/scrim"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="6dp"
+        android:text="@string/slideshow_active"
+        android:textColor="@android:color/white"
+        android:visibility="gone" />
+
+    <!-- Kawalan video: main/jeda, carian, masa, senyap -->
+    <LinearLayout
+        android:id="@+id/video_controls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/scrim"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="8dp"
+        android:visibility="gone">
+
+        <ImageButton
+            android:id="@+id/btn_play"
+            style="@style/ViewerControl"
+            android:src="@drawable/ic_play_arrow"
+            android:contentDescription="@string/play_pause" />
+
+        <TextView
+            android:id="@+id/txt_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:text="0:00"
+            android:textColor="@android:color/white"
+            android:textAppearance="?attr/textAppearanceLabelSmall" />
+
+        <SeekBar
+            android:id="@+id/seek_video"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/btn_mute"
+            style="@style/ViewerControl"
+            android:src="@drawable/ic_volume_up"
+            android:contentDescription="@string/mute" />
+    </LinearLayout>
+</FrameLayout>

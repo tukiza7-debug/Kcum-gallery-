@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Menu toolbar galeri -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/ic_search"
+        android:title="@string/search_title"
+        app:iconTint="?attr/colorOnSurface"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_sort"
+        android:icon="@drawable/ic_sort"
+        android:title="@string/sort_title"
+        app:iconTint="?attr/colorOnSurface"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_view"
+        android:icon="@drawable/ic_view_module"
+        android:title="@string/view_mode_title"
+        app:iconTint="?attr/colorOnSurface"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_select"
+        android:icon="@drawable/ic_select_all"
+        android:title="@string/select_items"
+        app:iconTint="?attr/colorOnSurface"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_new_folder"
+        android:icon="@drawable/ic_create_new_folder"
+        android:title="@string/create_folder_title"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_private"
+        android:icon="@drawable/ic_lock"
+        android:title="@string/settings_private_album"
+        app:showAsAction="never" />
+</menu>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  AndroidManifest.xml - Kcum Gallery
+
+  MODEL KEBENARAN (permission model):
+  - API 33+ (Android 13): READ_MEDIA_IMAGES + READ_MEDIA_VIDEO (granular media permission)
+  - API < 33           : READ_EXTERNAL_STORAGE (keserasian ke belakang, maxSdkVersion=32)
+  - API < 29           : WRITE_EXTERNAL_STORAGE (diperlukan untuk delete/edit pada Android 8/9)
+  - MANAGE_EXTERNAL_STORAGE : AKSES PENUH STORAN - LIHAT NOTA RISIKO DI BAWAH.
+
+  NOTA RISIKO MANAGE_EXTERNAL_STORAGE:
+  Kebenaran ini memberi aplikasi baca/tulis KESELURUHAN storan kongsi (semua fail semua app).
+  Risiko:
+    1. Privasi - aplikasi boleh membaca dokumen peribadi pengguna tanpa pengetahuan mereka.
+    2. Dasar Google Play - hanya dibenarkan untuk app teras tertentu (pengurus fail, antivirus,
+       backup). App galeri biasa akan DITOLAK semasa semakan kecuali justifikasi kukuh diberikan.
+    3. Kepercayaan pengguna - kebanyakan pengguna menolak app yang minta akses penuh.
+  Aplikasi ini TIDAK memintanya secara lalai; ia hanya diminta secara manual dari skrin
+  Tetapan > Akses penuh storan, untuk fungsi lanjutan (rename/move folder di luar Pictures
+  pada Android 11+). Laluan biasa ialah MediaStore API + SAF yang lebih selamat.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Android 13+ : kebenaran media granular -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <!-- Android 14+ : akses separa (pengguna pilih gambar tertentu) -->
+    <uses-permission android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED" />
+
+    <!-- Android 12 ke bawah : kebenaran baca storan lama -->
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+
+    <!-- Android 9 ke bawah : diperlukan untuk delete/edit fail -->
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28"
+        tools:ignore="ScopedStorage" />
+
+    <!--
+      AKSES PENUH STORAN (opsyenal, risiko tinggi - baca nota di atas).
+      Dinyatakan di sini tetapi TIDAK diminta semasa runtime melainkan pengguna
+      mengaktifkannya secara manual melalui Tetapan dalam aplikasi.
+    -->
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+
+    <application
+        android:name=".KcumApp"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="@string/app_name"
+        android:localeConfig="@xml/locales_config"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Kcum">
+
+        <!--
+          Servis appcompat untuk simpan pilihan Bahasa dalam aplikasi (per-app language)
+          pada peranti di bawah Android 13. Jangan buang meta-data ini.
+        -->
+        <service
+            android:name="androidx.appcompat.app.AppLocalesMetadataHolderService"
+            android:enabled="false"
+            android:exported="false">
+            <meta-data
+                android:name="autoStoreLocales"
+                android:value="true" />
+        </service>
+
+        <activity
+            android:name=".view.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".view.ViewerActivity"
+            android:exported="false"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:theme="@style/Theme.Kcum.Dark" />
+
+        <activity
+            android:name=".view.EditorActivity"
+            android:exported="false"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
+
+        <activity
+            android:name=".view.PinActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".view.HiddenActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".view.TrashActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".view.SearchActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!--
+          FileProvider - untuk kongsi fail dari storan dalaman app
+          (album peribadi / tong sampah) ke aplikasi lain dengan selamat.
+        -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.kcum.gallery.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+
+</manifest>

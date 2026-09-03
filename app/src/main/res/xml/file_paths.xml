@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Laluan FileProvider untuk kongsi fail dari storan dalaman app -->
+<paths>
+    <!-- Album peribadi -->
+    <files-path
+        name="hidden"
+        path="hidden/" />
+    <!-- Tong sampah -->
+    <files-path
+        name="trash"
+        path="trash/" />
+</paths>

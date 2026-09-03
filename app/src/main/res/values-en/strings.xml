@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- English translations -->
+<resources>
+    <string name="app_name">Kcum Gallery</string>
+
+    <!-- Common -->
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="done">Done</string>
+    <string name="delete">Delete</string>
+    <string name="save">Save</string>
+    <string name="undo">Undo</string>
+    <string name="close">Close</string>
+    <string name="rename">Rename</string>
+    <string name="hide">Hide</string>
+    <string name="restore">Restore</string>
+    <string name="share">Share</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="error_generic">An error occurred. Please try again.</string>
+
+    <!-- Bottom navigation -->
+    <string name="nav_photos">Photos</string>
+    <string name="nav_albums">Albums</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Permission -->
+    <string name="permission_rationale_title">Storage Permission Required</string>
+    <string name="permission_rationale_msg">Kcum Gallery needs media permission to show your photos and videos. Please allow it in Settings &gt; Permissions.</string>
+    <string name="permission_open_settings">Open Settings</string>
+    <string name="permission_denied_toast">Storage permission denied. Gallery cannot load.</string>
+    <string name="grant_permission">Grant Permission</string>
+
+    <!-- Gallery -->
+    <string name="empty_gallery_msg">No media found. Grant storage permission or refresh.</string>
+    <string name="select_items">Select items</string>
+    <string name="selected_count">%1$d selected</string>
+    <string name="items_count">%1$d items</string>
+
+    <!-- View modes -->
+    <string name="view_mode_title">View Mode</string>
+    <string name="view_grid">Grid</string>
+    <string name="view_list">List</string>
+    <string name="view_timeline">Timeline</string>
+
+    <!-- Sort -->
+    <string name="sort_title">Sort</string>
+    <string name="sort_by">Sort by</string>
+    <string name="sort_order">Order</string>
+    <string name="sort_date">Date</string>
+    <string name="sort_name">Name</string>
+    <string name="sort_size">Size</string>
+    <string name="sort_type">Type</string>
+    <string name="sort_asc">Ascending (A-Z / oldest first)</string>
+    <string name="sort_desc">Descending (Z-A / newest first)</string>
+
+    <!-- Create folder -->
+    <string name="create_folder_title">Create New Folder</string>
+    <string name="folder_name_hint">Folder name</string>
+    <string name="location_title">Location</string>
+    <string name="location_default">Default (Pictures/)</string>
+    <string name="location_custom">Choose custom location (SAF)</string>
+    <string name="custom_loc_warning">Custom location uses SAF - pick a parent folder when prompted.</string>
+    <string name="folder_name_error_empty">Folder name cannot be empty</string>
+    <string name="folder_name_error_invalid">Name contains invalid characters ( \\ / : * ? \" &lt; &gt; | )</string>
+    <string name="folder_created">Folder created</string>
+    <string name="folder_create_failed">Failed to create folder</string>
+
+    <!-- Selection actions -->
+    <string name="action_share">Share</string>
+    <string name="action_move">Move</string>
+    <string name="action_copy">Copy</string>
+    <string name="action_trash">Trash</string>
+    <string name="action_hide">Hide</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_export">Export a copy</string>
+    <string name="action_wallpaper">Set as wallpaper</string>
+    <string name="action_contact">Set as contact photo</string>
+    <string name="action_more">More</string>
+
+    <!-- Confirmations -->
+    <string name="trash_confirm_title">Move to Recycle Bin?</string>
+    <string name="trash_confirm_msg">%1$d item(s) will be moved to the recycle bin and permanently deleted after 30 days.</string>
+    <string name="hide_confirm_title">Hide items?</string>
+    <string name="hide_confirm_msg">%1$d item(s) will be moved to the Private Album (PIN protected) and removed from the gallery.</string>
+    <string name="moved_to_trash">%1$d item(s) moved to recycle bin</string>
+    <string name="hidden_count">%1$d item(s) hidden</string>
+    <string name="copied_count">%1$d item(s) copied</string>
+    <string name="operation_partial">%1$d item(s) processed, some failed</string>
+    <string name="move_success">Items moved</string>
+    <string name="move_failed">Move failed</string>
+    <string name="copy_success">Items copied</string>
+    <string name="copy_failed">Copy failed</string>
+    <string name="rename_title">Rename</string>
+    <string name="rename_hint">New name</string>
+    <string name="rename_success">Renamed</string>
+    <string name="rename_failed">Rename failed</string>
+    <string name="access_denied">Access denied by system. Try again after granting permission.</string>
+
+    <!-- Move/copy: choose folder -->
+    <string name="choose_folder_title">Choose Target Folder</string>
+    <string name="new_folder_option">+ New folder…</string>
+
+    <!-- Viewer -->
+    <string name="slideshow_toggle">Slideshow</string>
+    <string name="slideshow_active">Slideshow running - tap screen to stop</string>
+    <string name="slideshow_on">Slideshow started</string>
+    <string name="slideshow_off">Slideshow stopped</string>
+    <string name="play_pause">Play/Pause</string>
+    <string name="mute">Mute</string>
+    <string name="viewer_info_title">Media Info</string>
+    <string name="info_name">Name: %1$s</string>
+    <string name="info_type">Type: %1$s</string>
+    <string name="info_size">Size: %1$s</string>
+    <string name="info_dimensions">Dimensions: %1$s</string>
+    <string name="info_date">Date: %1$s</string>
+    <string name="info_path">Path: %1$s</string>
+    <string name="wallpaper_set">Wallpaper updated</string>
+    <string name="wallpaper_fail">Failed to set wallpaper</string>
+    <string name="contact_set_fail">Could not open contact photo picker</string>
+    <string name="export_success">Copy exported</string>
+    <string name="export_failed">Export failed</string>
+    <string name="share_failed">Failed to share file</string>
+
+    <!-- Editor -->
+    <string name="editor_title">Editor</string>
+    <string name="mode_rotate">Rotate</string>
+    <string name="mode_crop">Crop</string>
+    <string name="mode_filter">Filter</string>
+    <string name="mode_draw">Draw</string>
+    <string name="mode_text">Text</string>
+    <string name="filter_brightness">Brightness</string>
+    <string name="filter_contrast">Contrast</string>
+    <string name="filter_saturation">Saturation</string>
+    <string name="crop_free">Free</string>
+    <string name="crop_square">1:1</string>
+    <string name="crop_4_3">4:3</string>
+    <string name="crop_16_9">16:9</string>
+    <string name="crop_apply">Apply</string>
+    <string name="crop_cancel">Cancel</string>
+    <string name="crop_too_small">Crop area too small</string>
+    <string name="add_text">Add text</string>
+    <string name="add_text_title">Text Overlay</string>
+    <string name="text_hint">Type your text here</string>
+    <string name="saved_as_copy">Saved as a copy to gallery</string>
+    <string name="save_failed">Failed to save</string>
+    <string name="load_failed">Failed to load image</string>
+
+    <!-- PIN / security -->
+    <string name="pin_verify_title">App Lock</string>
+    <string name="pin_setup_title">Set PIN</string>
+    <string name="pin_old_title">Confirm Old PIN</string>
+    <string name="pin_enter_hint">Enter PIN (4-8 digits)</string>
+    <string name="pin_confirm_hint">Re-enter PIN to confirm</string>
+    <string name="pin_old_hint">Your old PIN</string>
+    <string name="pin_use_pin">Use PIN</string>
+    <string name="pin_wrong">Wrong PIN</string>
+    <string name="pin_mismatch">PINs do not match</string>
+    <string name="pin_too_short">PIN must be 4-8 digits</string>
+    <string name="pin_set_ok">PIN set successfully</string>
+    <string name="biometric_prompt_title">Unlock Kcum Gallery</string>
+    <string name="biometric_prompt_subtitle">Use fingerprint to authenticate</string>
+
+    <!-- Private album -->
+    <string name="hidden_title">Private Album</string>
+    <string name="hidden_empty">Private album is empty. Hide items from the gallery to add them here.</string>
+    <string name="unhide">Restore to gallery</string>
+    <string name="unhide_done">Item restored to gallery</string>
+
+    <!-- Trash -->
+    <string name="trash_title">Recycle Bin</string>
+    <string name="trash_empty">Recycle bin is empty</string>
+    <string name="trash_auto_note">Items are automatically deleted forever after 30 days.</string>
+    <string name="restore_done">Item restored to original location</string>
+    <string name="restore_failed">Restore failed</string>
+    <string name="delete_forever_title">Delete Permanently?</string>
+    <string name="delete_forever_confirm">"%1$s" will be permanently deleted. This cannot be undone.</string>
+    <string name="deleted_permanently">Deleted permanently</string>
+    <string name="empty_trash">Empty Recycle Bin</string>
+    <string name="empty_trash_confirm">All items in the recycle bin will be permanently deleted.</string>
+    <string name="trash_emptied">Recycle bin emptied</string>
+
+    <!-- Search -->
+    <string name="search_title">Search &amp; Filter</string>
+    <string name="search_hint">Search file name…</string>
+    <string name="type_all">All</string>
+    <string name="type_image">Photos</string>
+    <string name="type_video">Videos</string>
+    <string name="size_all">Any size</string>
+    <string name="size_small">&lt; 1 MB</string>
+    <string name="size_medium">1–10 MB</string>
+    <string name="size_large">&gt; 10 MB</string>
+    <string name="date_from">From date</string>
+    <string name="date_to">To date</string>
+    <string name="date_clear">Reset</string>
+    <string name="no_results">No results found</string>
+
+    <!-- Albums -->
+    <string name="albums_empty">No albums found</string>
+    <string name="album_count">%1$d items</string>
+    <string name="album_delete_title">Delete Folder?</string>
+    <string name="album_delete_confirm">All %1$d items in this folder will be moved to the recycle bin.</string>
+    <string name="folder_renamed">Folder renamed</string>
+    <string name="folder_rename_failed">Failed to rename folder</string>
+
+    <!-- Settings -->
+    <string name="section_display">Display</string>
+    <string name="section_security">Security</string>
+    <string name="section_storage">Storage</string>
+    <string name="settings_theme">Theme</string>
+    <string name="settings_theme_subtitle">Dark, light or follow system</string>
+    <string name="theme_system">Follow system</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="settings_language">Language</string>
+    <string name="settings_language_subtitle">Bahasa Melayu / English</string>
+    <string name="lang_system">Follow system</string>
+    <string name="lang_ms">Bahasa Melayu</string>
+    <string name="lang_en">English</string>
+    <string name="settings_grid_size">Grid size</string>
+    <string name="settings_grid_subtitle">2, 3 or 4 columns</string>
+    <string name="settings_slideshow">Slideshow duration</string>
+    <string name="settings_slideshow_subtitle">Seconds per slide (3/5/10)</string>
+    <string name="settings_private_album">Private Album</string>
+    <string name="settings_private_subtitle">Hidden items, protected by PIN/biometric</string>
+    <string name="settings_pin">PIN</string>
+    <string name="pin_set">Set a new PIN</string>
+    <string name="pin_change">Change PIN (confirm old PIN first)</string>
+    <string name="settings_biometric">Biometric authentication</string>
+    <string name="settings_biometric_subtitle">Use fingerprint instead of PIN</string>
+    <string name="settings_lock_timeout">App lock timeout</string>
+    <string name="settings_timeout_subtitle">When the app should re-lock</string>
+    <string name="timeout_immediate">Immediately</string>
+    <string name="timeout_1min">After 1 minute</string>
+    <string name="timeout_5min">After 5 minutes</string>
+    <string name="timeout_never">Never</string>
+    <string name="settings_storage_title">Storage usage</string>
+    <string name="settings_storage_subtitle">Photo/video counts and space</string>
+    <string name="storage_images">Photos: %1$d</string>
+    <string name="storage_videos">Videos: %1$d</string>
+    <string name="storage_total">Total media size: %1$s</string>
+    <string name="storage_free">Free space: %1$s</string>
+    <string name="storage_trash">In recycle bin: %1$d</string>
+    <string name="storage_hidden">In private album: %1$d</string>
+    <string name="settings_full_access">Full storage access</string>
+    <string name="settings_full_access_subtitle">MANAGE_EXTERNAL_STORAGE - high risk, read first</string>
+    <string name="full_access_status_on">Status: GRANTED</string>
+    <string name="full_access_status_off">Status: NOT granted</string>
+    <string name="full_access_risk_msg">Current status: %1$s\n\nRISK WARNING:\n1. Privacy - this allows the app to read and write ALL files in shared storage.\n2. Google Play - normal gallery apps are usually REJECTED in review unless well justified.\n3. Most features of this app do not need it. Enable ONLY if you understand the risks.</string>
+    <string name="full_access_open">Open System Settings</string>
+    <string name="about_app">Kcum Gallery v1.0 • 100% offline • No cloud backup • Built with MediaStore API + Scoped Storage</string>
+</resources>

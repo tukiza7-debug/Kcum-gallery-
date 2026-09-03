@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Skrin Tetapan: senarai baris tetapan (theme, bahasa, grid, slideshow, keselamatan, storan) -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="16dp"
+            android:text="@string/nav_settings"
+            android:textAppearance="?attr/textAppearanceHeadlineSmall" />
+
+        <!-- ---------- PAPARAN ---------- -->
+        <TextView style="@style/SettingsSection" android:text="@string/section_display" />
+
+        <LinearLayout android:id="@+id/row_theme" style="@style/SettingsRow">
+            <ImageView style="@style/SettingsIcon" android:src="@drawable/ic_dark_mode"
+                android:contentDescription="@null" />
+            <LinearLayout style="@style/SettingsColumn">
+                <TextView style="@style/SettingsTitle" android:text="@string/settings_theme" />
+                <TextView style="@style/SettingsSubtitle" android:text="@string/settings_theme_subtitle" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/row_language" style="@style/SettingsRow">
+            <ImageView style="@style/SettingsIcon" android:src="@drawable/ic_language"
+                android:contentDescription="@null" />
+            <LinearLayout style="@style/SettingsColumn">
+                <TextView style="@style/SettingsTitle" android:text="@string/settings_language" />
+                <TextView style="@style/SettingsSubtitle" android:text="@string/settings_language_subtitle" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/row_grid" style="@style/SettingsRow">
+            <ImageView style="@style/SettingsIcon" android:src="@drawable/ic_grid_on"
+                android:contentDescription="@null" />
+            <LinearLayout style="@style/SettingsColumn">
+                <TextView style="@style/SettingsTitle" android:text="@string/settings_grid_size" />
+                <TextView style="@style/SettingsSubtitle" android:text="@string/settings_grid_subtitle" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/row_slideshow" style="@style/SettingsRow">
+            <ImageView style="@style/SettingsIcon" android:src="@drawable/ic_slideshow"
+                android:contentDescription="@null" />
+            <LinearLayout style="@style/SettingsColumn">
+                <TextView style="@style/SettingsTitle" android:text="@string/settings_slideshow" />
+                <TextView style="@style/SettingsSubtitle" android:text="@string/settings_slideshow_subtitle" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ---------- KESELAMATAN ---------- -->
+        <TextView style="@style/SettingsSection" android:text="@string/section_security" />
+
+        <LinearLayout android:id="@+id/row_private_album" style="@style/SettingsRow">
+            <ImageView style="@style/SettingsIcon" android:src="@drawable/ic_lock"
+                android:contentDescription="@null" />
+            <LinearLayout style="@style/SettingsColumn">
+                <TextView style="@style/SettingsTitle" android:text="@string/settings_private_album" />
+                <TextView style="@style/SettingsSubtitle" android:text="@string/settings_private_subtitle" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/row_pin" style="@style/SettingsRow">
+            <ImageView style="@style/SettingsIcon" android:src="@drawable/ic_pin"
+                android:contentDescription="@null" />
+            <LinearLayout style="@style/SettingsColumn">
+                <TextView style="@style/SettingsTitle" android:text="@string/settings_pin" />
+                <TextView android:id="@+id/txt_pin_subtitle"
+                    style="@style/SettingsSubtitle" android:text="@string/pin_set" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/row_biometric" style="@style/SettingsRow">
+            <ImageView style="@style/SettingsIcon" android:src="@drawable/ic_fingerprint"
+                android:contentDescription="@null" />
+            <LinearLayout style="@style/SettingsColumn">
+                <TextView style="@style/SettingsTitle" android:text="@string/settings_biometric" />
+                <TextView style="@style/SettingsSubtitle" android:text="@string/settings_biometric_subtitle" />
+            </LinearLayout>
+            <Switch
+                android:id="@+id/switch_biometric"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical" />
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/row_lock_timeout" style="@style/SettingsRow">
+            <ImageView style="@style/SettingsIcon" android:src="@drawable/ic_timer"
+                android:contentDescription="@null" />
+            <LinearLayout style="@style/SettingsColumn">
+                <TextView style="@style/SettingsTitle" android:text="@string/settings_lock_timeout" />
+                <TextView style="@style/SettingsSubtitle" android:text="@string/settings_timeout_subtitle" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ---------- STORAN & LAIN ---------- -->
+        <TextView style="@style/SettingsSection" android:text="@string/section_storage" />
+
+        <LinearLayout android:id="@+id/row_storage" style="@style/SettingsRow">
+            <ImageView style="@style/SettingsIcon" android:src="@drawable/ic_sd_storage"
+                android:contentDescription="@null" />
+            <LinearLayout style="@style/SettingsColumn">
+                <TextView style="@style/SettingsTitle" android:text="@string/settings_storage_title" />
+                <TextView style="@style/SettingsSubtitle" android:text="@string/settings_storage_subtitle" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/row_manage_storage" style="@style/SettingsRow">
+            <ImageView style="@style/SettingsIcon" android:src="@drawable/ic_warning"
+                android:contentDescription="@null" />
+            <LinearLayout style="@style/SettingsColumn">
+                <TextView style="@style/SettingsTitle" android:text="@string/settings_full_access" />
+                <TextView style="@style/SettingsSubtitle" android:text="@string/settings_full_access_subtitle" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/row_trash"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:drawablePadding="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="14dp"
+            android:text="@string/trash_title"
+            android:textAppearance="?attr/textAppearanceBodyLarge" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="@string/about_app"
+            android:textAppearance="?attr/textAppearanceBodySmall" />
+    </LinearLayout>
+</ScrollView>
