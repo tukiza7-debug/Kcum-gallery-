@@ -47,8 +47,10 @@ class HiddenAdapter(
         fun bind(item: HiddenItem) {
             Glide.with(img)
                 .load(File(item.storedPath))
+                .override(300, 300)
                 .centerCrop()
                 .placeholder(R.drawable.ic_lock)
+                .diskCacheStrategy(com.bumptech.glide.load.engine.DiskCacheStrategy.ALL)
                 .into(img)
             txtName.text = item.displayName
             badge.visibleOr(item.isVideo)

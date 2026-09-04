@@ -71,7 +71,10 @@ class TimelineAdapter(
         private val txtDuration: TextView = view.findViewById(R.id.txt_duration)
 
         fun bind(item: MediaItem) {
-            Glide.with(img).load(item.uri).centerCrop()
+            Glide.with(img).load(item.uri)
+                .override(300, 300)
+                .centerCrop()
+                .diskCacheStrategy(com.bumptech.glide.load.engine.DiskCacheStrategy.ALL)
                 .placeholder(R.drawable.ic_photo).into(img)
             badge.visibleOr(item.isVideo)
             if (item.isVideo) txtDuration.text = Formats.duration(item.durationMs)

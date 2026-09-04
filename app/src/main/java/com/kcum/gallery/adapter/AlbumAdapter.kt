@@ -54,8 +54,10 @@ class AlbumAdapter(
         fun bind(album: Album) {
             Glide.with(img)
                 .load(album.cover.uri)
+                .override(400, 400)
                 .centerCrop()
                 .placeholder(R.drawable.ic_folder)
+                .diskCacheStrategy(com.bumptech.glide.load.engine.DiskCacheStrategy.ALL)
                 .into(img)
             txtName.text = album.name
             txtCount.text = img.context.getString(R.string.album_count, album.count)

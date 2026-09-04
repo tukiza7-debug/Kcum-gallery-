@@ -221,6 +221,13 @@
     <string name="settings_grid_subtitle">2, 3 atau 4 lajur</string>
     <string name="settings_slideshow">Tempoh slideshow</string>
     <string name="settings_slideshow_subtitle">Saat setiap slaid (3/5/10)</string>
+    <string name="section_video">Video</string>
+    <string name="settings_video_autoplay">Main automatik</string>
+    <string name="settings_video_autoplay_subtitle">Main video terus bila dibuka</string>
+    <string name="settings_video_loop">Ulang video</string>
+    <string name="settings_video_loop_subtitle">Main semula secara automatik selepas tamat</string>
+    <string name="settings_video_muted">Mula tanpa bunyi</string>
+    <string name="settings_video_muted_subtitle">Video senyap secara lalai</string>
     <string name="settings_private_album">Album Peribadi</string>
     <string name="settings_private_subtitle">Item tersembunyi, dilindungi PIN/biometrik</string>
     <string name="settings_pin">PIN</string>

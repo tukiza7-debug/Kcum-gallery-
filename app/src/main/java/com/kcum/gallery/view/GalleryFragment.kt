@@ -478,38 +478,66 @@ class GalleryFragment : Fragment() {
         requireContext().shareUris(items.map { it.uri }, "image/*")
     }
 
+    private var trashQueue: MutableList<MediaItem> = mutableListOf()
+    private var trashSuccessCount = 0
+    private var trashRemovedItems: MutableList<MediaItem> = mutableListOf()
+
     private fun trashSelected() {
         val items = getSelected()
         if (items.isEmpty()) return
         MaterialAlertDialogBuilder(requireContext())
             .setTitle(R.string.trash_confirm_title)
             .setMessage(getString(R.string.trash_confirm_msg, items.size))
-            .setPositiveButton(R.string.delete) { _, _ -> performTrash(items) }
+            .setPositiveButton(R.string.delete) { _, _ -> startTrashQueue(items) }
             .setNegativeButton(R.string.cancel, null)
             .show()
     }
 
-    private fun performTrash(items: List<MediaItem>) {
+    private fun startTrashQueue(items: List<MediaItem>) {
+        trashQueue = items.toMutableList()
+        trashSuccessCount = 0
+        trashRemovedItems = mutableListOf()
+        processNextTrashItem()
+    }
+
+    private fun processNextTrashItem() {
+        if (!isAdded) return
+        if (trashQueue.isEmpty()) {
+            finishTrashQueue()
+            return
+        }
+        val item = trashQueue.removeAt(0)
         lifecycleScope.launch {
             val result = com.kcum.gallery.data.MediaRepository.get(requireContext())
-                .moveToTrash(items)
+                .moveToTrash(listOf(item))
             if (result.failed > 0 && result.intentSender != null) {
-                // Sistem minta pengguna benarkan dulu - jadualkan cuba semula
-                pendingRetry = { performTrash(items) }
+                pendingRetry = {
+                    trashQueue.add(0, item)
+                    processNextTrashItem()
+                }
                 intentSenderLauncher.launch(
                     androidx.activity.result.IntentSenderRequest.Builder(result.intentSender).build()
                 )
                 return@launch
             }
-            viewModel.removeItems(items)
-            exitSelection()
-            val msg = if (result.failed > 0) R.string.operation_partial else R.string.moved_to_trash
-            Toast.makeText(
-                requireContext(),
-                getString(msg, result.success),
-                Toast.LENGTH_SHORT
-            ).show()
+            if (result.success > 0) {
+                trashSuccessCount++
+                trashRemovedItems.add(item)
+            }
+            processNextTrashItem()
         }
+    }
+
+    private fun finishTrashQueue() {
+        if (trashRemovedItems.isNotEmpty()) viewModel.removeItems(trashRemovedItems)
+        exitSelection()
+        val totalAttempted = trashSuccessCount
+        val msg = if (totalAttempted == 0) R.string.operation_partial else R.string.moved_to_trash
+        Toast.makeText(
+            requireContext(),
+            getString(msg, trashSuccessCount),
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
     private fun hideSelected() {

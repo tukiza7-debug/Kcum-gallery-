@@ -57,6 +57,51 @@
             </LinearLayout>
         </LinearLayout>
 
+        <!-- VIDEO -->
+        <TextView style="@style/SettingsSection" android:text="@string/section_video" />
+
+        <LinearLayout android:id="@+id/row_video_autoplay" style="@style/SettingsRow">
+            <ImageView style="@style/SettingsIcon" android:src="@drawable/ic_play_arrow"
+                android:contentDescription="@null" />
+            <LinearLayout style="@style/SettingsColumn">
+                <TextView style="@style/SettingsTitle" android:text="@string/settings_video_autoplay" />
+                <TextView style="@style/SettingsSubtitle" android:text="@string/settings_video_autoplay_subtitle" />
+            </LinearLayout>
+            <Switch
+                android:id="@+id/switch_video_autoplay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical" />
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/row_video_loop" style="@style/SettingsRow">
+            <ImageView style="@style/SettingsIcon" android:src="@drawable/ic_undo"
+                android:contentDescription="@null" />
+            <LinearLayout style="@style/SettingsColumn">
+                <TextView style="@style/SettingsTitle" android:text="@string/settings_video_loop" />
+                <TextView style="@style/SettingsSubtitle" android:text="@string/settings_video_loop_subtitle" />
+            </LinearLayout>
+            <Switch
+                android:id="@+id/switch_video_loop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical" />
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/row_video_muted" style="@style/SettingsRow">
+            <ImageView style="@style/SettingsIcon" android:src="@drawable/ic_volume_off"
+                android:contentDescription="@null" />
+            <LinearLayout style="@style/SettingsColumn">
+                <TextView style="@style/SettingsTitle" android:text="@string/settings_video_muted" />
+                <TextView style="@style/SettingsSubtitle" android:text="@string/settings_video_muted_subtitle" />
+            </LinearLayout>
+            <Switch
+                android:id="@+id/switch_video_muted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical" />
+        </LinearLayout>
+
         <!-- KESELAMATAN -->
         <TextView style="@style/SettingsSection" android:text="@string/section_security" />
 

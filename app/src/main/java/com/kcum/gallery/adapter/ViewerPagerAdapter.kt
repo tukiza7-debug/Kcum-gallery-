@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import com.bumptech.glide.Glide
 import com.kcum.gallery.data.MediaItem
+import com.kcum.gallery.data.PrefsRepository
 import com.kcum.gallery.view.ZoomableImageView
 
 /**
@@ -92,11 +93,13 @@ class ViewerPagerAdapter(
 
         fun bind(item: MediaItem) {
             release()
+            val prefs = PrefsRepository.get(playerView.context)
             player = ExoPlayer.Builder(playerView.context).build().apply {
                 setMediaItem(ExoMediaItem.fromUri(item.uri))
-                repeatMode = Player.REPEAT_MODE_ONE
+                repeatMode = if (prefs.videoLoop) Player.REPEAT_MODE_ONE else Player.REPEAT_MODE_OFF
+                volume = if (prefs.videoMuted) 0f else 1f
                 prepare()
-                playWhenReady = false
+                playWhenReady = prefs.videoAutoplay
                 addListener(object : Player.Listener {
                     override fun onIsPlayingChanged(isPlaying: Boolean) {
                         if (isPlaying) onPlayerReady(player) 

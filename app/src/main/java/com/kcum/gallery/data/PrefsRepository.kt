@@ -44,6 +44,9 @@ class PrefsRepository private constructor(context: Context) {
         private const val KEY_PIN_HASH = "pin_hash"
         private const val KEY_PIN_SALT = "pin_salt"
         private const val KEY_BIOMETRIC = "biometric_enabled"
+        private const val KEY_VIDEO_AUTOPLAY = "video_autoplay"
+        private const val KEY_VIDEO_LOOP = "video_loop"
+        private const val KEY_VIDEO_MUTED = "video_muted"
 
         @Volatile
         private var instance: PrefsRepository? = null
@@ -107,4 +110,17 @@ class PrefsRepository private constructor(context: Context) {
         set(value) = prefs.edit().putBoolean(KEY_BIOMETRIC, value).apply()
 
     fun hasPin(): Boolean = !pinHash.isNullOrBlank()
+
+    // ---------- Video ----------
+    var videoAutoplay: Boolean
+        get() = prefs.getBoolean(KEY_VIDEO_AUTOPLAY, false)
+        set(value) = prefs.edit().putBoolean(KEY_VIDEO_AUTOPLAY, value).apply()
+
+    var videoLoop: Boolean
+        get() = prefs.getBoolean(KEY_VIDEO_LOOP, true)
+        set(value) = prefs.edit().putBoolean(KEY_VIDEO_LOOP, value).apply()
+
+    var videoMuted: Boolean
+        get() = prefs.getBoolean(KEY_VIDEO_MUTED, false)
+        set(value) = prefs.edit().putBoolean(KEY_VIDEO_MUTED, value).apply()
 }

@@ -58,8 +58,10 @@ class TrashAdapter(
             }
             Glide.with(img)
                 .load(File(item.storedPath))
+                .override(300, 300)
                 .centerCrop()
                 .placeholder(R.drawable.ic_photo)
+                .diskCacheStrategy(com.bumptech.glide.load.engine.DiskCacheStrategy.ALL)
                 .into(img)
             btnRestore.setOnClickListener { onRestoreSafe(item) }
             btnDelete.setOnClickListener { onDeleteForeverSafe(item) }

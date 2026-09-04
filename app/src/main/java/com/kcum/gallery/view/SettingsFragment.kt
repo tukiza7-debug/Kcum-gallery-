@@ -195,6 +195,25 @@ class SettingsFragment : Fragment() {
             startActivity(intent)
         }
 
+        // ---------- VIDEO ----------
+        val switchVideoAutoplay = view.findViewById<Switch>(R.id.switch_video_autoplay)
+        switchVideoAutoplay.isChecked = prefs.videoAutoplay
+        switchVideoAutoplay.setOnCheckedChangeListener { _, checked ->
+            prefs.videoAutoplay = checked
+        }
+
+        val switchVideoLoop = view.findViewById<Switch>(R.id.switch_video_loop)
+        switchVideoLoop.isChecked = prefs.videoLoop
+        switchVideoLoop.setOnCheckedChangeListener { _, checked ->
+            prefs.videoLoop = checked
+        }
+
+        val switchVideoMuted = view.findViewById<Switch>(R.id.switch_video_muted)
+        switchVideoMuted.isChecked = prefs.videoMuted
+        switchVideoMuted.setOnCheckedChangeListener { _, checked ->
+            prefs.videoMuted = checked
+        }
+
         // ---------- BIOMETRIK ----------
         val switchBiometric = view.findViewById<Switch>(R.id.switch_biometric)
         switchBiometric.isChecked = prefs.biometricEnabled

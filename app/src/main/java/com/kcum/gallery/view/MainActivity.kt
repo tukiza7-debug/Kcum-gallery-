@@ -13,22 +13,23 @@ import com.kcum.gallery.R
 import com.kcum.gallery.data.PrefsRepository
 import com.kcum.gallery.util.PermissionUtils
 
-/**
- * Aktiviti utama: hos 3 tab (Gambar / Album / Tetapan) melalui BottomNavigationView
- * + sistem Kunci App (PIN / biometrik dengan timeout).
- */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var prefs: PrefsRepository
     private lateinit var bottomNav: BottomNavigationView
     private lateinit var fragmentContainer: View
 
-    // ---- Sistem kunci app ----
+    private var galleryFragment: GalleryFragment? = null
+    private var albumsFragment: AlbumsFragment? = null
+    private var settingsFragment: SettingsFragment? = null
+
     companion object {
-        /** Masa app terakhir ke background (untuk kira timeout kunci) */
         var lastPausedAt: Long = 0L
-        /** Sudah dibuka untuk sesi semasa (elak minta PIN berulang) */
         var unlockedThisSession: Boolean = false
+
+        private const val TAB_PHOTOS = "photos"
+        private const val TAB_ALBUMS = "albums"
+        private const val TAB_SETTINGS = "settings"
     }
 
     private val pinLauncher =
@@ -36,7 +37,6 @@ class MainActivity : AppCompatActivity() {
             if (result.resultCode == RESULT_OK) {
                 unlockedThisSession = true
             } else {
-                // Gagal buka - tutup app
                 finishAffinity()
             }
         }
@@ -48,7 +48,6 @@ class MainActivity : AppCompatActivity() {
             } else {
                 val denied = grants.filterValues { !it }.keys.toList()
                 if (!PermissionUtils.canAskAgain(this, denied)) {
-                    // Ditolak kekal -> arah ke Settings (seperti keperluan spesifikasi)
                     showSettingsRedirectDialog()
                 } else {
                     Toast.makeText(
@@ -66,11 +65,17 @@ class MainActivity : AppCompatActivity() {
         fragmentContainer = findViewById(R.id.fragment_container)
         bottomNav = findViewById(R.id.bottom_nav)
 
+        if (savedInstanceState != null) {
+            galleryFragment = supportFragmentManager.findFragmentByTag("photos") as? GalleryFragment
+            albumsFragment = supportFragmentManager.findFragmentByTag("albums") as? AlbumsFragment
+            settingsFragment = supportFragmentManager.findFragmentByTag("settings") as? SettingsFragment
+        }
+
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.nav_photos -> { showFragment(GalleryFragment.newInstance(null, null)); true }
-                R.id.nav_albums -> { showFragment(AlbumsFragment()); true }
-                R.id.nav_settings -> { showFragment(SettingsFragment()); true }
+                R.id.nav_photos -> { switchTab(TAB_PHOTOS); true }
+                R.id.nav_albums -> { switchTab(TAB_ALBUMS); true }
+                R.id.nav_settings -> { switchTab(TAB_SETTINGS); true }
                 else -> false
             }
         }
@@ -92,14 +97,13 @@ class MainActivity : AppCompatActivity() {
         lastPausedAt = System.currentTimeMillis()
     }
 
-    /** Kunci app jika PIN aktif dan timeout dicapai */
     private fun enforceAppLock() {
         if (!prefs.hasPin()) return
         if (prefs.lockTimeout == PrefsRepository.LOCK_NEVER && unlockedThisSession) return
 
         val elapsed = System.currentTimeMillis() - lastPausedAt
         val needLock = when {
-            lastPausedAt == 0L -> true // proses baru dibuka
+            lastPausedAt == 0L -> true
             prefs.lockTimeout == PrefsRepository.LOCK_NEVER -> false
             else -> elapsed >= prefs.lockTimeout
         }
@@ -121,19 +125,53 @@ class MainActivity : AppCompatActivity() {
             .show()
     }
 
-    private fun showFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, fragment)
-            .commit()
+    private fun switchTab(tab: String) {
+        val transaction = supportFragmentManager.beginTransaction()
+
+        galleryFragment?.let { transaction.hide(it) }
+        albumsFragment?.let { transaction.hide(it) }
+        settingsFragment?.let { transaction.hide(it) }
+
+        when (tab) {
+            TAB_PHOTOS -> {
+                val f = galleryFragment
+                if (f == null) {
+                    val newF = GalleryFragment.newInstance(null, null)
+                    galleryFragment = newF
+                    transaction.add(R.id.fragment_container, newF, TAB_PHOTOS)
+                } else {
+                    transaction.show(f)
+                }
+            }
+            TAB_ALBUMS -> {
+                val f = albumsFragment
+                if (f == null) {
+                    val newF = AlbumsFragment()
+                    albumsFragment = newF
+                    transaction.add(R.id.fragment_container, newF, TAB_ALBUMS)
+                } else {
+                    transaction.show(f)
+                }
+            }
+            TAB_SETTINGS -> {
+                val f = settingsFragment
+                if (f == null) {
+                    val newF = SettingsFragment()
+                    settingsFragment = newF
+                    transaction.add(R.id.fragment_container, newF, TAB_SETTINGS)
+                } else {
+                    transaction.show(f)
+                }
+            }
+        }
+        transaction.commit()
     }
 
     private fun refreshCurrentFragment() {
-        val current = supportFragmentManager.findFragmentById(R.id.fragment_container)
-        (current as? GalleryFragment)?.onPermissionGranted()
-        (current as? AlbumsFragment)?.onPermissionGranted()
+        galleryFragment?.onPermissionGranted()
+        albumsFragment?.onPermissionGranted()
     }
 
-    /** Minta kebenaran runtime mengikut versi OS (dipanggil dari fragment juga) */
     fun ensurePermissions() {
         if (PermissionUtils.hasStoragePermission(this)) {
             refreshCurrentFragment()
