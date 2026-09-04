@@ -72,18 +72,24 @@ class MediaRepository private constructor(private val context: Context) {
      * Guna MediaStore API sepenuhnya (serasi scoped storage Android 10+).
      */
     suspend fun loadMedia(bucketId: String? = null): List<MediaItem> = withContext(Dispatchers.IO) {
+        val useSqlFilter = bucketId != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
+        val selection = if (useSqlFilter) MediaStore.MediaColumns.BUCKET_ID + " = ?" else null
+        val selectionArgs = if (useSqlFilter) arrayOf(bucketId) else null
         val result = ArrayList<MediaItem>()
         result += queryCollection(
             collection = imagesCollection(),
             isVideo = false,
-            projection = imageProjection()
+            projection = imageProjection(),
+            selection = selection,
+            selectionArgs = selectionArgs
         )
         result += queryCollection(
             collection = videosCollection(),
             isVideo = true,
-            projection = videoProjection()
+            projection = videoProjection(),
+            selection = selection,
+            selectionArgs = selectionArgs
         )
-        if (bucketId != null) result.filter { it.bucketId == bucketId } else result
     }
 
     private fun imagesCollection(): Uri =
@@ -122,11 +128,13 @@ class MediaRepository private constructor(private val context: Context) {
     private fun queryCollection(
         collection: Uri,
         isVideo: Boolean,
-        projection: Array<String>
+        projection: Array<String>,
+        selection: String? = null,
+        selectionArgs: Array<String>? = null
     ): List<MediaItem> {
         val items = ArrayList<MediaItem>()
         context.contentResolver.query(
-            collection, projection, null, null,
+            collection, projection, selection, selectionArgs,
             "${MediaStore.MediaColumns.DATE_ADDED} DESC"
         )?.use { cursor ->
             val idIdx = cursor.getColumnIndexOrThrow(MediaStore.MediaColumns._ID)

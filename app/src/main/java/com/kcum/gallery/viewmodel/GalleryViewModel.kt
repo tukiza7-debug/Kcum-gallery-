@@ -38,10 +38,13 @@ class GalleryViewModel(app: Application) : AndroidViewModel(app) {
         const val TYPE_VIDEO = "video"
     }
 
+    private var refreshJob: kotlinx.coroutines.Job? = null
+
     /** Muat semula data daripada MediaStore dan guna susunan + tapisan terkini */
     fun refresh() {
+        refreshJob?.cancel()
         loading.value = true
-        viewModelScope.launch {
+        refreshJob = viewModelScope.launch {
             val all = repo.loadMedia(activeBucketId)
             publish(all)
             loading.value = false
