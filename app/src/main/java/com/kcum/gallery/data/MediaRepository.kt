@@ -73,8 +73,8 @@ class MediaRepository private constructor(private val context: Context) {
      */
     suspend fun loadMedia(bucketId: String? = null): List<MediaItem> = withContext(Dispatchers.IO) {
         val useSqlFilter = bucketId != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
-        val selection = if (useSqlFilter) MediaStore.MediaColumns.BUCKET_ID + " = ?" else null
-        val selectionArgs = if (useSqlFilter) arrayOf(bucketId) else null
+        val selection: String? = if (useSqlFilter) MediaStore.MediaColumns.BUCKET_ID + " = ?" else null
+        val selectionArgs: Array<String>? = if (useSqlFilter) arrayOf(bucketId as String) else null
         val result = ArrayList<MediaItem>()
         result += queryCollection(
             collection = imagesCollection(),
@@ -90,6 +90,8 @@ class MediaRepository private constructor(private val context: Context) {
             selection = selection,
             selectionArgs = selectionArgs
         )
+        val finalResult: List<MediaItem> = if (bucketId != null && !useSqlFilter) result.filter { it.bucketId == bucketId } else result
+        finalResult
     }
 
     private fun imagesCollection(): Uri =
